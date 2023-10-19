@@ -45,7 +45,7 @@ function calcularPorcentagens() {
 }
 
 // Chama a função quando a página estiver carregada
-window.addEventListener("load", calcularPorcentagens);
+window.addEventListener("reload", calcularPorcentagens);
 
 
     let slideIndex = 0;
@@ -68,4 +68,25 @@ window.addEventListener("load", calcularPorcentagens);
         slides[slideIndex - 1].style.display = "block";
         setTimeout(showSlides, 10000); // Mude a imagem a cada 10 segundos (10000ms)
     }
+
+window.onload = function() {
+   calcularPorcentagens();
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    const skillsSection = document.querySelector(".skills");
+    const contentDiv = skillsSection.querySelector(".contente");
+    const expandButton = skillsSection.querySelector(".expand-button");
+
+    expandButton.addEventListener("click", function() {
+        if (contentDiv.style.display === "none" || contentDiv.style.display === "") {
+            contentDiv.style.display = "block";
+            expandButton.textContent = "▲";
+        } else {
+            contentDiv.style.display = "none";
+            expandButton.textContent = "▼";
+        }
+    });
+});
+
 
